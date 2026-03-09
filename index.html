@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vitamine FM 88.1 Stéréo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:#0c0c0c;
+color:white;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:black;
+border-bottom:2px solid orange;
+}
+
+header img{
+height:70px;
+}
+
+nav a{
+margin:0 15px;
+text-decoration:none;
+color:white;
+font-weight:500;
+}
+
+nav a:hover{
+color:orange;
+}
+
+/* HERO */
+
+.hero{
+
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
+url("studio.jpg");
+
+background-size:cover;
+
+}
+
+.hero h1{
+font-size:70px;
+color:orange;
+}
+
+.hero p{
+font-size:28px;
+margin:10px 0;
+}
+
+/* RADIO PLAYER */
+
+.player{
+
+margin-top:30px;
+background:#141414;
+padding:30px;
+border-radius:15px;
+
+}
+
+button{
+
+background:orange;
+border:none;
+padding:12px 30px;
+font-size:18px;
+border-radius:25px;
+cursor:pointer;
+margin:5px;
+
+}
+
+button:hover{
+background:#ff9a00;
+}
+
+/* SECTIONS */
+
+.section{
+
+padding:80px 8%;
+text-align:center;
+
+}
+
+.section h2{
+
+color:orange;
+margin-bottom:40px;
+font-size:40px;
+
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+
+}
+
+.card{
+
+background:#181818;
+padding:30px;
+border-radius:12px;
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:scale(1.05);
+
+}
+
+/* CHAT */
+
+.chat{
+
+background:#121212;
+padding:30px;
+border-radius:10px;
+
+}
+
+/* FOOTER */
+
+footer{
+
+background:black;
+padding:40px;
+text-align:center;
+border-top:2px solid orange;
+
+}
+
+/* WHATSAPP BUTTON */
+
+.whatsapp{
+
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<img src="logo.png">
+
+<nav>
+
+    <a href="index.html">Accueil</a>
+    <a href="programmes.html">Programmes</a>
+    <a href="animateurs.html">Animateurs</a>
+    <a href="actualites.html">Actualités</a>
+    <a href="contact.html">Contact</a>
+    <a href="galerie.html">Galerie</a>
+    
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Vitamine FM 88.1</h1>
+
+<p>Anwo nap gade</p>
+
+<div class="player">
+
+<h3 style="color:orange">🔴 EN DIRECT</h3>
+
+<p>Vitamine FM 88.1 Stéréo</p>
+
+<audio id="radio">
+
+<source src="STREAM_LINK" type="audio/mpeg">
+
+</audio>
+
+<button onclick="document.getElementById('radio').play()">▶ Play</button>
+
+<button onclick="document.getElementById('radio').pause()">⏸ Pause</button>
+
+</div>
+
+</section>
+
+
+
+<!-- PROGRAMMES -->
+
+<section class="section">
+
+<h2>Programmes</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Emission connexion</h3>
+<p>7h - 9h</p>
+
+</div>
+
+<div class="card">
+
+<h3>Musique Non Stop</h3>
+<p>9h - 14h</p>
+
+</div>
+
+<div class="card">
+
+<h3>Koze Timoun</h3>
+<p>18h</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ANIMATEURS -->
+
+<section class="section">
+
+<h2>Animateurs</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Past Samuel Thélusma</h3>
+<p>Animateur connexion</p>
+</div>
+
+<div class="card">
+<h3>Past. Garvens St Hilaire</h3>
+<p>Culture & Musique</p>
+</div>
+
+<div class="card">
+<h3>Past. Abceste Dacéus</h3>
+<p>Koze timoun</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CHAT -->
+
+<section class="section">
+
+<h2>Chat des auditeurs</h2>
+
+<div class="chat">
+
+<p>Discutez avec la radio :</p>
+
+<input placeholder="Votre message" style="padding:10px;width:60%">
+<button>Envoyer</button>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<p>Vitamine FM 88.1 FM Stéréo</p>
+
+<p>Gonaïves - Haïti</p>
+
+<p>Anwo nap gade</p>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/50934098623" class="whatsapp" target="_blank">
+
+💬 WhatsApp Radio
+
+</a>
+
+
+</body>
+</html>
