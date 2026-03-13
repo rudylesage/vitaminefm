@@ -198,10 +198,9 @@ font-weight:bold;
     <a href="index.html">Accueil</a>
     <a href="programmes.html">Programmes</a>
     <a href="animateurs.html">Animateurs</a>
-    <a href="actualites.html">Actualités</a>
     <a href="contact.html">Contact</a>
     <a href="galerie.html">Galerie</a>
-    
+    <a href="a propos.html">À propos</a>
     </nav>
 
 </header>
@@ -234,6 +233,8 @@ font-weight:bold;
 </div>
 
 </section>
+
+
 
 
 
@@ -300,19 +301,58 @@ font-weight:bold;
 </section>
 
 
-
-<!-- CHAT -->
+<!-- GALERIE -->
 
 <section class="section">
 
-<h2>Chat des auditeurs</h2>
+<h2>Galerie Radio</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="studio.jpg" style="width:100%;border-radius:10px;">
+<p>Studio Vitamine FM</p>
+</div>
+
+<div class="card">
+<img src="studio1.png" style="width:100%;border-radius:10px;">
+<p>Emission en direct</p>
+</div>
+
+<div class="card">
+
+<iframe width="100%" height="200"
+src="https://www.youtube.com/embed/HYlOLqr5H5U"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+<p>Interview spéciale</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- CHAT AUDITEURS -->
+
+<section class="section">
+
+<h2>Chat des Auditeurs</h2>
 
 <div class="chat">
 
-<p>Discutez avec la radio :</p>
+<input id="name" placeholder="Votre nom"
+style="padding:10px;width:100%;margin-bottom:10px">
 
-<input placeholder="Votre message" style="padding:10px;width:60%">
-<button>Envoyer</button>
+<textarea id="message"
+placeholder="Votre message pour la radio..."
+style="padding:10px;width:100%;height:80px"></textarea>
+
+<button onclick="sendMessage()">Envoyer</button>
+
+<div id="messages"
+style="margin-top:20px;text-align:left"></div>
 
 </div>
 
@@ -320,25 +360,82 @@ font-weight:bold;
 
 
 
+
 <footer>
 
-<p>Vitamine FM 88.1 FM Stéréo</p>
+<h3>Vitamine FM 88.1 Stéréo</h3>
 
-<p>Gonaïves - Haïti</p>
+<p>📍 Gonaïves, Haïti</p>
 
-<p>Anwo nap gade</p>
+<p>📻 Fréquence : 88.1 FM Stéréo</p>
+
+<p>📧 Email : radiovitaminfm@gmail.com</p>
+
+<p>📱 WhatsApp : +509 3791-1960</p>
+
+<p>📘 Facebook : Vitamine FM</p>
+
+<p>© 2026 Vitamine FM – Tous droits réservés</p>
 
 </footer>
 
 
 <!-- WHATSAPP -->
 
-<a href="https://wa.me/50934098623" class="whatsapp" target="_blank">
+<a href="https://wa.me/50937911960" class="whatsapp" target="_blank">
 
 💬 WhatsApp Radio
 
 </a>
 
+<script>
+
+function sendMessage(){
+
+const name=document.getElementById("name").value;
+const message=document.getElementById("message").value;
+
+if(name=="" || message==""){
+alert("Veuillez écrire votre nom et message");
+return;
+}
+
+db.collection("chat").add({
+name:name,
+message:message,
+date:new Date()
+});
+
+document.getElementById("message").value="";
+
+}
+
+// afficher messages
+
+db.collection("chat")
+.orderBy("date","desc")
+.onSnapshot(snapshot=>{
+
+let html="";
+
+snapshot.forEach(doc=>{
+
+let data=doc.data();
+
+html+=`
+<div style="background:#1a1a1a;padding:10px;margin:10px 0;border-radius:8px">
+<strong style="color:orange">${data.name}</strong><br>
+${data.message}
+</div>
+`;
+
+});
+
+document.getElementById("messages").innerHTML=html;
+
+});
+
+</script>
 
 </body>
 </html>

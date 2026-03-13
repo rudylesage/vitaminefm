@@ -1,33 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
 
+<meta charset="UTF-8">
 <title>Contact - Vitamine FM</title>
 
 <style>
 
 body{
+font-family:Arial;
 background:#0c0c0c;
 color:white;
-font-family:Arial;
 text-align:center;
+margin:0;
+}
+
+header{
+background:#111;
+padding:20px;
+border-bottom:2px solid orange;
+}
+
+nav a{
+color:orange;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:white;
+}
+
+form{
+margin-top:30px;
 }
 
 input, textarea{
-
+width:300px;
 padding:10px;
 margin:10px;
-width:300px;
-
+border:none;
+border-radius:5px;
 }
 
 button{
-
+padding:10px 20px;
 background:orange;
 border:none;
-padding:10px 20px;
+font-weight:bold;
+cursor:pointer;
+}
 
+button:hover{
+background:#ff7a00;
+}
+
+.success{
+display:none;
+color:lightgreen;
+font-weight:bold;
+margin-top:20px;
+}
+
+footer{
+margin-top:50px;
+padding:30px;
+background:#111;
+border-top:2px solid orange;
 }
 
 </style>
@@ -36,29 +77,78 @@ padding:10px 20px;
 
 <body>
 
-<h1>Contactez Vitamine FM</h1>
+<header>
 
-<form>
+<h1>Vitamine FM 88.1</h1>
+<p>Anwo nap gade</p>
 
-<input placeholder="Votre nom">
+<nav>
 
-<br>
+<img src="logo.png" height="60">
 
-<input placeholder="Votre email">
 
-<br>
+<a href="index.html">Accueil</a>
+<a href="programmes.html">Programmes</a>
+<a href="animateurs.html">Animateurs</a>
+<a href="galerie.html">Galerie</a>
+<a href="contact.html">Contact</a>
+<a href="a propos.html">A Propos</a>
 
-<textarea placeholder="Votre message"></textarea>
 
-<br>
 
-<button>Envoyer</button>
+</nav>
+
+</header>
+
+<h2>Contactez la radio</h2>
+
+<p>Envoyez-nous votre message ou suggestion</p>
+
+<form action="https://formspree.io/f/VOTRE_CODE" method="POST" id="contactForm">
+
+<input type="text" name="name" placeholder="Votre nom" required><br>
+
+<input type="email" name="email" placeholder="Votre email" required><br>
+
+<textarea name="message" rows="5" placeholder="Votre message" required></textarea><br>
+
+<button type="submit">Envoyer le message 📩</button>
 
 </form>
 
-<br>
+<div class="success" id="successMessage">
+✅ Votre message a été envoyé avec succès !
+</div>
 
-<a href="index.html">Retour accueil</a>
+<footer>
+
+<h3>Vitamine FM</h3>
+
+<p>📍 Gonaïves, Haïti</p>
+
+<p>📻 88.1 FM Stéréo</p>
+
+<p>📱 WhatsApp : +509 XXXX XXXX</p>
+
+<p>📧 Email : contact@vitaminefm.com</p>
+
+</footer>
+
+<script>
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(){
+
+setTimeout(function(){
+
+document.getElementById("successMessage").style.display="block";
+
+},1000);
+
+});
+
+</script>
 
 </body>
 
